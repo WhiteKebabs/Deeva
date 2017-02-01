@@ -1,0 +1,331 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49826BBA1E39E0FB00B0B7C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49826BB91E39E0FB00B0B7C7 /* AppDelegate.swift */; };
+		49826BBC1E39E0FB00B0B7C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49826BBB1E39E0FB00B0B7C7 /* ViewController.swift */; };
+		49826BBF1E39E0FB00B0B7C7 /* Deeva.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49826BBD1E39E0FB00B0B7C7 /* Deeva.xcdatamodeld */; };
+		49826BC11E39E0FB00B0B7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49826BC01E39E0FB00B0B7C7 /* Assets.xcassets */; };
+		49826BC41E39E0FB00B0B7C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49826BC21E39E0FB00B0B7C7 /* Main.storyboard */; };
+		49826BCC1E39F17800B0B7C7 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49826BCB1E39F17800B0B7C7 /* WindowController.swift */; };
+		49826BD01E3AEA1D00B0B7C7 /* NSOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49826BCF1E3AEA1D00B0B7C7 /* NSOutlet.swift */; };
+		49826BD21E3C5A7A00B0B7C7 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49826BD11E3C5A7A00B0B7C7 /* Helper.swift */; };
+		499B2B281E40208F00BE0FFB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499B2B271E40208F00BE0FFB /* EventList.swift */; };
+		499B2B2A1E40209900BE0FFB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499B2B291E40209900BE0FFB /* Event.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		49826BB61E39E0FB00B0B7C7 /* Deeva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deeva.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49826BB91E39E0FB00B0B7C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49826BBB1E39E0FB00B0B7C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49826BBE1E39E0FB00B0B7C7 /* Deeva.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Deeva.xcdatamodel; sourceTree = "<group>"; };
+		49826BC01E39E0FB00B0B7C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49826BC31E39E0FB00B0B7C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49826BC51E39E0FB00B0B7C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49826BCB1E39F17800B0B7C7 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		49826BCF1E3AEA1D00B0B7C7 /* NSOutlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSOutlet.swift; sourceTree = "<group>"; };
+		49826BD11E3C5A7A00B0B7C7 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		499B2B271E40208F00BE0FFB /* EventList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		499B2B291E40209900BE0FFB /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49826BB31E39E0FB00B0B7C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49826BAD1E39E0FB00B0B7C7 = {
+			isa = PBXGroup;
+			children = (
+				49826BB81E39E0FB00B0B7C7 /* Deeva */,
+				49826BB71E39E0FB00B0B7C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49826BB71E39E0FB00B0B7C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49826BB61E39E0FB00B0B7C7 /* Deeva.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49826BB81E39E0FB00B0B7C7 /* Deeva */ = {
+			isa = PBXGroup;
+			children = (
+				49826BB91E39E0FB00B0B7C7 /* AppDelegate.swift */,
+				49826BCF1E3AEA1D00B0B7C7 /* NSOutlet.swift */,
+				499B2B271E40208F00BE0FFB /* EventList.swift */,
+				499B2B291E40209900BE0FFB /* Event.swift */,
+				49826BD11E3C5A7A00B0B7C7 /* Helper.swift */,
+				49826BBB1E39E0FB00B0B7C7 /* ViewController.swift */,
+				49826BCB1E39F17800B0B7C7 /* WindowController.swift */,
+				49826BC01E39E0FB00B0B7C7 /* Assets.xcassets */,
+				49826BC21E39E0FB00B0B7C7 /* Main.storyboard */,
+				49826BC51E39E0FB00B0B7C7 /* Info.plist */,
+				49826BBD1E39E0FB00B0B7C7 /* Deeva.xcdatamodeld */,
+			);
+			path = Deeva;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49826BB51E39E0FB00B0B7C7 /* Deeva */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49826BC81E39E0FB00B0B7C7 /* Build configuration list for PBXNativeTarget "Deeva" */;
+			buildPhases = (
+				49826BB21E39E0FB00B0B7C7 /* Sources */,
+				49826BB31E39E0FB00B0B7C7 /* Frameworks */,
+				49826BB41E39E0FB00B0B7C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Deeva;
+			productName = Deeva;
+			productReference = 49826BB61E39E0FB00B0B7C7 /* Deeva.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49826BAE1E39E0FB00B0B7C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Andrew Walker";
+				TargetAttributes = {
+					49826BB51E39E0FB00B0B7C7 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 49826BB11E39E0FB00B0B7C7 /* Build configuration list for PBXProject "Deeva" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49826BAD1E39E0FB00B0B7C7;
+			productRefGroup = 49826BB71E39E0FB00B0B7C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49826BB51E39E0FB00B0B7C7 /* Deeva */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49826BB41E39E0FB00B0B7C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49826BC11E39E0FB00B0B7C7 /* Assets.xcassets in Resources */,
+				49826BC41E39E0FB00B0B7C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49826BB21E39E0FB00B0B7C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				499B2B2A1E40209900BE0FFB /* Event.swift in Sources */,
+				499B2B281E40208F00BE0FFB /* EventList.swift in Sources */,
+				49826BBF1E39E0FB00B0B7C7 /* Deeva.xcdatamodeld in Sources */,
+				49826BCC1E39F17800B0B7C7 /* WindowController.swift in Sources */,
+				49826BBC1E39E0FB00B0B7C7 /* ViewController.swift in Sources */,
+				49826BBA1E39E0FB00B0B7C7 /* AppDelegate.swift in Sources */,
+				49826BD01E3AEA1D00B0B7C7 /* NSOutlet.swift in Sources */,
+				49826BD21E3C5A7A00B0B7C7 /* Helper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		49826BC21E39E0FB00B0B7C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49826BC31E39E0FB00B0B7C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49826BC61E39E0FB00B0B7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		49826BC71E39E0FB00B0B7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		49826BC91E39E0FB00B0B7C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Deeva/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WhiteKebabs.Deeva;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		49826BCA1E39E0FB00B0B7C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Deeva/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WhiteKebabs.Deeva;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49826BB11E39E0FB00B0B7C7 /* Build configuration list for PBXProject "Deeva" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49826BC61E39E0FB00B0B7C7 /* Debug */,
+				49826BC71E39E0FB00B0B7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49826BC81E39E0FB00B0B7C7 /* Build configuration list for PBXNativeTarget "Deeva" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49826BC91E39E0FB00B0B7C7 /* Debug */,
+				49826BCA1E39E0FB00B0B7C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		49826BBD1E39E0FB00B0B7C7 /* Deeva.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				49826BBE1E39E0FB00B0B7C7 /* Deeva.xcdatamodel */,
+			);
+			currentVersion = 49826BBE1E39E0FB00B0B7C7 /* Deeva.xcdatamodel */;
+			path = Deeva.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 49826BAE1E39E0FB00B0B7C7 /* Project object */;
+}
