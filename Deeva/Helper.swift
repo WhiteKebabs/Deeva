@@ -22,32 +22,6 @@ extension String {
     }
 }
 
-func sort(arr:[NSManagedObject]) -> [NSManagedObject] {
-    
-    var millis = [Int]()
-    var newArr = [NSManagedObject]()
-    
-    for event in arr {
-        let time = event.value(forKey: "startDate") as! Date
-        let timeInt = time.timeIntervalSince1970
-        
-        for i in 0...millis.count{
-            if i == millis.count {
-                millis.append(Int(timeInt))
-                newArr.append(arr[i])
-                break
-            }
-            else if millis[i] > Int(timeInt) {
-                millis.insert(Int(timeInt), at: i)
-                newArr.insert(event, at: i)
-                break
-            }
-        }
-    }
-    
-    return newArr
-}
-
 func milliToDate(time:Int) -> String{
     let date = NSDate(timeIntervalSince1970: TimeInterval(time))
     let dayTimePeriodFormatter = DateFormatter()

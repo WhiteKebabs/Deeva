@@ -29,8 +29,12 @@ class EventList {
         }
     }
     
-    func getDate(date:String) -> [String:[Event]]{
-        return eventList[date]!
+    func getDate(date:String) -> [String:[Event]]?{
+
+        if let dayList = eventList[date] {
+            return dayList
+        }
+        return nil
     }
     
     func addEvent(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:[String], location:String, extraInfo:String) -> Bool {
