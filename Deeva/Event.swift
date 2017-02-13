@@ -18,12 +18,12 @@ class Event {
     private var location:String
     private var extraInfo:String
     
-    init(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:[String], location:String, extraInfo:String) {
+    init(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:String, location:String, extraInfo:String) {
         self.name = name
         self.startDate = startDate
         self.endDate = endDate
         self.flexible = flexible
-        self.repeats = repeats
+        self.repeats = repeats.components(separatedBy: " ")
         self.location = location
         self.extraInfo = extraInfo
     }

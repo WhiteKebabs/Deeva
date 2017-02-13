@@ -22,6 +22,21 @@ extension String {
     }
 }
 
+func getDayOfWeek(today:String)->String {
+    
+    let formatter  = DateFormatter()
+    formatter.dateFormat = "MMM dd yyyy"
+    let todayDate = formatter.date(from: today)!
+    let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+    let myComponents = myCalendar.components(.weekday, from: todayDate)
+    let weekDay = myComponents.weekday
+    
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    
+    
+    return days[weekDay! - 1]
+}
+
 func milliToDate(time:Int) -> String{
     let date = NSDate(timeIntervalSince1970: TimeInterval(time))
     let dayTimePeriodFormatter = DateFormatter()

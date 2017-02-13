@@ -12,6 +12,7 @@ import CoreData
 class EventList {
     
     private var eventList =  [String: [String:[Event]]]()
+    private var repeatedList = [String:[Event]]()
     
     func initialise(data:[NSManagedObject]) {
         for event in data {
@@ -22,35 +23,64 @@ class EventList {
                 startDate:event.value(forKey: "startDate") as! Date,
                 endDate: event.value(forKey: "endDate") as! Date,
                 flexible: event.value(forKey: "flexible") as! Bool,
-                repeats: event.value(forKey: "repeats") as! [String],
+                repeats: event.value(forKey: "repeats") as! String,
                 location: event.value(forKey: "location") as! String,
-                extraInfo: event.value(forKey: "extrainfo") as! String
+                extraInfo: event.value(forKey: "extraInfo") as! String
             )
         }
     }
     
+    func getRepeated(day:String) -> [Event]? {
+        if let dayList = repeatedList[day] {
+            return dayList
+        }
+        return nil
+    }
+    
     func getDate(date:String) -> [String:[Event]]?{
-
         if let dayList = eventList[date] {
             return dayList
         }
         return nil
     }
     
-    func addEvent(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:[String], location:String, extraInfo:String) -> Bool {
+    func addEvent(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:String, location:String, extraInfo:String) -> Bool {
         let newEvent = Event(name:name, startDate:startDate, endDate:endDate, flexible:flexible,
                              repeats:repeats, location:location, extraInfo:extraInfo)
         
+        if repeats != "" {
+            let days = repeats.components(separatedBy: " ")
+            for i in 1...days.count-1 {
+                var dList = repeatedList[days[i]]
+                if dList == nil {
+                    dList = [Event]()
+                }
+                dList?.append(newEvent)
+                repeatedList[days[i]] = dList
+            }
+            return true
+        }
+        
         // Find destination in data structure
         var dayList = eventList[newEvent.getStartTime(format: "MMM/dd/yyyy")]
+        if dayList == nil {
+            dayList = [String:[Event]]()
+        }
+        
         var hourList = dayList?[newEvent.getStartTime(format: "HH")]
+        if hourList == nil {
+            hourList = [Event]()
+        }
         
         // Make sure there is no clash
-        for event in hourList! {
-            if newEvent.clashesWith(newEvent: event){
-                return false
+        if (hourList != nil) {
+            for event in hourList! {
+                if newEvent.clashesWith(newEvent: event){
+                    return false
+                }
             }
         }
+
         
         // Add to data structure
         hourList?.append(newEvent)
@@ -84,4 +114,17 @@ class EventList {
         return false
     }
     
+    func printEventList() {
+        for (key, value) in eventList {
+            print("kind: \(key)")
+            for (key2, value2) in value {
+                print("kind: \(key2)")
+                for event in value2 {
+                    print(event.getName())
+                }
+            }
+        }
+    }
+    
 }
+
