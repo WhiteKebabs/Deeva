@@ -18,7 +18,7 @@ class ViewController: NSViewController {
     
     // Outlets
     var hourContainers: [NSView] = []
-    var newEventFields: [AnyObject] = [] // CLEAR DATA AFTER USAGE
+    var newEventFields: [AnyObject] = []
     var myDateLabel = NSTextField()
     var newEventWindow = NSView()
     var newEventBackground = NSView()
@@ -27,7 +27,7 @@ class ViewController: NSViewController {
     var savedEvents = [NSManagedObject]()
     var eventList = EventList()
     var eventButtons: [NSButton] = []
-    var buttonEventMap =  [String: Event]() // CLEAR DATA AFTER USAGE
+    var buttonEventMap =  [String: Event]()
     var displayedEvent = String()
     
     func changeDate(button: NSButton){
@@ -42,6 +42,9 @@ class ViewController: NSViewController {
     
     func reloadData(){
         
+        // Clear data
+        buttonEventMap =  [String: Event]()
+        
         // Remove all event buttons on display
         for button in eventButtons {
             button.removeFromSuperview()
@@ -55,28 +58,60 @@ class ViewController: NSViewController {
         let buttonArea = (width-150)/2
         
         // Loop through all hours in currDayEvent
-        for var i in 0...23 {
+        for var i in 0...24 {
             
-            // Loop through all events occuring in the hour
-            let hourList = currDayEvents?[String((i+awakeTime)%24)]
-            if hourList == nil { continue }
-            for event in hourList! {
+            let j = i
+            
+            var list = [Event]()
+            if j < 24 {
+                // Loop through all events occuring in the hour
+                if (currDayEvents?[String((i+awakeTime)%24)]) == nil { continue }
+                else { list = (currDayEvents?[String((i+awakeTime)%24)])! }
+            }
+            else {
+                if eventList.getRepeated(day: getDayOfWeek(today: myDateLabel.stringValue)) == nil { break }
+                else { list = eventList.getRepeated(day: getDayOfWeek(today: myDateLabel.stringValue))! }
+            }
+            
+            for event in list {
                 
                 // Add necessary number of buttons for event duration
                 var start = Int(event.getStartTime(format: "mm"))!
+                let startHour = Int(event.getStartTime(format: "HH"))!// Add
                 let end = Int(event.getEndTime(format: "mm"))!
-                let endHour = Int(event.getEndTime(format: "HH"))! - 9
+                var endHour = Int(event.getEndTime(format: "HH"))! - 9
+                
+                if j == 24 {
+                
+                    i = startHour
+                    endHour += 9
+                
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "MMM dd yyyy"
+                    let currentDateTime = Double((formatter.date(from: myDateLabel.stringValue)?.timeIntervalSince1970)!)
+                    let eventStartTime = Double((formatter.date(from: event.getStartTime(format: "MMM dd yyyy"))?.timeIntervalSince1970)!)
+                    let repeats = event.getRepeats()
+                    formatter.dateFormat = "MMM/dd/yyyy"
+                    let eventEndTime = Double((formatter.date(from: repeats[0])?.timeIntervalSince1970)!)
+                
+                    if currentDateTime < eventStartTime || currentDateTime > eventEndTime { continue }
+                }
+                
                 while i <= endHour {
                     
                     let title = event.getName() + "\n" + event.getStartTime(format: "HH:mm") +
                         " - " + event.getEndTime(format: "HH:mm")
                     let x = 75 + buttonArea*CGFloat(Double(start)/Double(60))
                     
+                    var hourIndex:Int = 0
+                    if j < 24 { hourIndex = j }
+                    else { hourIndex = (j+awakeTime+6)%24 }
+                    
                     // If the button to the end of the hour
                     if i < endHour {
                         let w = buttonArea*CGFloat(Double(60-start)/Double(60))
-                        let button = createButton(title:title, x:x, y:0, w:w, h:hourContainers[i].frame.height)
-                        button.action = #selector(displayExistingEvent)
+                        let button = createButton(title:title, x:x, y:0, w:w, h:hourContainers[hourIndex].frame.height)
+                        button.action = #selector(openEventDisplay)
                         hourContainers[i].addSubview(button)
                         eventButtons.append(button)
                         buttonEventMap[title] = event
@@ -86,8 +121,8 @@ class ViewController: NSViewController {
                     // If the button does not go to the end
                     else {
                         let w = buttonArea*CGFloat(Double(end-start)/Double(60))
-                        let button = createButton(title:title, x:x, y:0, w:w, h:hourContainers[i].frame.height)
-                        button.action = #selector(displayExistingEvent)
+                        let button = createButton(title:title, x:x, y:0, w:w, h:hourContainers[hourIndex].frame.height)
+                        button.action = #selector(openEventDisplay)
                         hourContainers[i].addSubview(button)
                         eventButtons.append(button)
                         buttonEventMap[title] = event
@@ -95,58 +130,7 @@ class ViewController: NSViewController {
                     i += 1
                 }
             }
-        }
-        
-        if let repeatedEvents = eventList.getRepeated(day: getDayOfWeek(today: myDateLabel.stringValue)) {
-            for event in repeatedEvents {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "MMM dd yyyy"
-                let currentDateTime = Double((formatter.date(from: myDateLabel.stringValue)?.timeIntervalSince1970)!)
-                let eventStartTime = Double((formatter.date(from: event.getStartTime(format: "MMM dd yyyy"))?.timeIntervalSince1970)!)
-                let repeats = event.getRepeats()
-                formatter.dateFormat = "MMM/dd/yyyy"
-                let eventEndTime = Double((formatter.date(from: repeats[0])?.timeIntervalSince1970)!)
-                if currentDateTime >= eventStartTime && currentDateTime <= eventEndTime {
-                
-                    // Add necessary number of buttons for event duration
-                    var start = Int(event.getStartTime(format: "mm"))!
-                    let end = Int(event.getEndTime(format: "mm"))!
-                    let startHour = Int(event.getStartTime(format: "HH"))!// Add
-                    let endHour = Int(event.getEndTime(format: "HH"))! // Add
-                
-                    var i = startHour // Add
-                
-                    while i <= endHour {
-                    
-                        let title = event.getName() + "\n" + event.getStartTime(format: "HH:mm") +
-                            " - " + event.getEndTime(format: "HH:mm")
-                        let x = 75 + buttonArea*CGFloat(Double(start)/Double(60))
-                    
-                        // If the button to the end of the hour
-                        if i < endHour {
-                            let w = buttonArea*CGFloat(Double(60-start)/Double(60))
-                            let button = createButton(title:title, x:x, y:0, w:w, h:hourContainers[i].frame.height)
-                            button.action = #selector(displayExistingEvent)
-                            hourContainers[(i+awakeTime+6)%24].addSubview(button)
-                            eventButtons.append(button)
-                            buttonEventMap[title] = event
-                            start = 0
-                        }
-                        
-                            // If the button does not go to the end
-                        else {
-                            let w = buttonArea*CGFloat(Double(end-start)/Double(60))
-                            let button = createButton(title:title, x:x, y:0, w:w, h:hourContainers[i].frame.height)
-                            button.action = #selector(displayExistingEvent)
-                            hourContainers[(i+awakeTime+6)%24].addSubview(button)
-                            eventButtons.append(button)
-                            buttonEventMap[title] = event
-                        }
-                        i += 1
-                    }
-                }
-                
-            }
+            i = j
         }
         
     }
@@ -184,26 +168,15 @@ class ViewController: NSViewController {
         }
     }
     
-    func pressedRepeatDay(button:NSButton){
-        if button.layer?.backgroundColor == NSColor.blue.cgColor {
-            button.wantsLayer = true
-            button.layer?.backgroundColor = NSColor.lightGray.cgColor
-        }
-        else {
-            button.wantsLayer = true
-            button.layer?.backgroundColor = NSColor.blue.cgColor
-        }
-    }
-    
     func pressedRepeat(button:NSButton){
         button.wantsLayer = true
         
-        if button.layer?.backgroundColor == NSColor.blue.cgColor {
-            button.layer?.backgroundColor = NSColor.lightGray.cgColor
+        if button.title == "Repeat: On" {
+            button.title = "Repeat: Off"
         }
         
         else {
-            button.layer?.backgroundColor = NSColor.blue.cgColor
+            button.title = "Repeat: On"
             
             let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             
@@ -216,12 +189,12 @@ class ViewController: NSViewController {
                 let button = NSButton(frame:NSRect(x:100 + 100*Int(Double(i)/4.0), y:205 - 30*(i%4) , width:100, height:30))
                 button.bezelStyle = NSRegularSquareBezelStyle
                 button.title = days[i]
-                button.action = #selector(pressedRepeatDay)
+                button.setButtonType(.switch)
                 newEventFields.append(button)
                 newEventWindow.addSubview(button)
             }
             
-            let field = createDatePicker(x: 400/7 + 1, y: 400/10 + 40, w: 400*5/7 - 2, h: 35)
+            let field = createDatePicker(x: 400/7 + 1, y: 400/10 + 45, w: 400*5/7 - 2, h: 22)
             newEventWindow.addSubview(field)
             newEventFields.append(field)
             
@@ -244,7 +217,7 @@ class ViewController: NSViewController {
         var repeatDays = [String]()
         if (newEventFields[6] as! NSButton).layer?.backgroundColor == NSColor.blue.cgColor {
             for i in 7...13 {
-                if (newEventFields[i] as! NSButton).layer?.backgroundColor == NSColor.blue.cgColor{
+                if (newEventFields[i] as! NSButton).state == NSOnState{
                     repeatDays.append((newEventFields[i] as! NSButton).title)
                 }
             }
@@ -289,15 +262,10 @@ class ViewController: NSViewController {
         newEventBackground.removeFromSuperview()
     }
     
-    func openNewEvent(){
-        openEventDisplay(function: "new", event:buttonEventMap[""], title:"")
-    }
-    
-    func displayExistingEvent(button:NSButton){
-        openEventDisplay(function: "existing", event:buttonEventMap[button.title]!, title:button.title)
-    }
-    
-    func openEventDisplay(function:String, event:Event?, title:String){
+    func openEventDisplay(button:NSButton){
+        
+        // Clear data
+        newEventFields = []
         
         // Create the window for the fields
         newEventWindow = createView(x: width/2 - 200, y: height/2 - 200, w: 400, h: 400, color:NSColor(netHex:0xecf0f1).cgColor)
@@ -308,77 +276,46 @@ class ViewController: NSViewController {
         self.view.addSubview(newEventBackground)
         
         // Generate Fields
-        
-        if function == "existing" {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MMM/dd/yyyy HH:mm:ss"
+        let fields = ["Start Date", "End Date", "Name", "Priority", "Location", "Extra Information"]
+        for i in 0...fields.endIndex-1 {
             
-            // Start Date
-            let field = createDatePicker(x: 400/7 + 1, y: 400*CGFloat(7.0/9) - CGFloat(33.5*Double(0)), w: 400*5/7 - 4, h: 32)
-            field.dateValue = formatter.date(from: (event?.getStartTime(format: "MMM/dd/yyyy HH:mm:ss"))!)!
-            newEventWindow.addSubview(field)
-            
-            // End Date
-            let field2 = createDatePicker(x: 400/7 + 1, y: 400*CGFloat(7.0/9) - CGFloat(33.5*Double(1)), w: 400*5/7 - 4, h: 32)
-            field2.dateValue = formatter.date(from: (event?.getEndTime(format: "MMM/dd/yyyy HH:mm:ss"))!)!
-            newEventWindow.addSubview(field2)
-            
-            // Name
-            let field3 = createField(placeholder: "Name", x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*2),
-                                    w: 400*5/7 - 2, h: 35)
-            field3.stringValue = (event?.getName())!
-            newEventWindow.addSubview(field3)
-            
-            //Flexibility
-            let field4 = createField(placeholder: "Flexibility", x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*3),
-                                     w: 400*5/7 - 2, h: 35)
-            field4.stringValue = "Flexible"
-            newEventWindow.addSubview(field4)
-            
-            // Location
-            let field5 = createField(placeholder: "Location", x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*4),
-                                     w: 400*5/7 - 2, h: 35)
-            field5.stringValue = (event?.getLocation())!
-            newEventWindow.addSubview(field5)
-            
-            // Extra Information
-            let field6 = createField(placeholder: "Extra Information", x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*5),
-                                     w: 400*5/7 - 2, h: 35)
-            field6.stringValue = (event?.getExtraInfo())!
-            newEventWindow.addSubview(field6)
-            
-            let deleteButton = createButton(title: "Delete", x: 400*4/7, y: 40, w: 400*2/7, h: 40)
-            deleteButton.action = #selector(deleteEvent)
-            newEventWindow.addSubview(deleteButton)
-            
-            displayedEvent = title
-            
-        }
-        
-        else {
-            
-            let fields = ["Start Date", "End Date", "Name", "Priority", "Location", "Extra Information"]
-            for i in 0...fields.endIndex-1 {
-                
-                // Add NSDatePicker if the field is a date
-                if fields[i] == "Start Date" || fields[i] == "End Date" {
-                    let field = createDatePicker(x: 400/7 + 1, y: 400*CGFloat(7.0/9) - CGFloat(33.5*Double(i)), w: 400*5/7 - 4, h: 32)
-                    newEventFields.append(field)
-                    newEventWindow.addSubview(field)
+            // Add NSDatePicker if the field is a date
+            if fields[i] == "Start Date" || fields[i] == "End Date" {
+                let field = createDatePicker(x: 400/7 + 1, y: 400*CGFloat(7.0/9) - CGFloat(33.5*Double(i)), w: 400*5/7 - 4, h: 22)
+                if button.title != "Create" {
+                    let event = buttonEventMap[button.title]!
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "MMM/dd/yyyy HH:mm:ss"
+                    if i == 0 {
+                        field.dateValue = formatter.date(from: event.getStartTime(format: "MMM/dd/yyyy HH:mm:ss"))!
+                    }
+                    else {
+                        field.dateValue = formatter.date(from: event.getEndTime(format: "MMM/dd/yyyy HH:mm:ss"))!
+                    }
                 }
-                
-                // Add NSTextField if the field is a string
-                else {
-                    let field = createField(placeholder: fields[i], x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*i),
-                                            w: 400*5/7 - 2, h: 35)
-                    field.stringValue = "1"
-                    newEventFields.append(field)
-                    newEventWindow.addSubview(field)
-                }
-                
+                newEventFields.append(field)
+                newEventWindow.addSubview(field)
             }
             
-            let repeatButton = createButton(title: "Repeat", x: 400/7, y: 80, w: 400*5/7, h: 40)
+            // Add NSTextField if the field is a string
+            else {
+                let field = createField(placeholder: fields[i], x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*i),
+                                        w: 400*5/7 - 2, h: 35)
+                if button.title != "Create" {
+                    let event = buttonEventMap[button.title]!
+                    if i == 2 { field.stringValue = event.getName() }
+                    if i == 3 { field.stringValue = "Flexible" }
+                    if i == 4 { field.stringValue = event.getLocation() }
+                    if i == 5 { field.stringValue = event.getExtraInfo() }
+                }
+                newEventFields.append(field)
+                newEventWindow.addSubview(field)
+            }
+            
+        }
+
+        if button.title == "Create"{
+            let repeatButton = createButton(title: "Repeat: Off", x: 400/7, y: 80, w: 400*5/7, h: 40)
             repeatButton.action = #selector(pressedRepeat)
             newEventWindow.addSubview(repeatButton)
             newEventFields.append(repeatButton)
@@ -386,7 +323,11 @@ class ViewController: NSViewController {
             let saveButton = createButton(title: "Save", x: 400*4/7, y: 40, w: 400*2/7, h: 40)
             saveButton.action = #selector(saveNewEvent)
             newEventWindow.addSubview(saveButton)
-            
+        }
+        else {
+            let deleteButton = createButton(title: "Delete", x: 400*4/7, y: 40, w: 400*2/7, h: 40)
+            deleteButton.action = #selector(deleteEvent)
+            newEventWindow.addSubview(deleteButton)
         }
         
         let cancelButton = createButton(title: "Cancel", x: 400/7, y: 40, w: 400*2/7, h: 40)
@@ -394,6 +335,8 @@ class ViewController: NSViewController {
         newEventWindow.addSubview(cancelButton)
         
         view.addSubview(newEventWindow)
+        
+        displayedEvent = button.title
     }
     
     override func awakeFromNib() {
@@ -421,7 +364,7 @@ class ViewController: NSViewController {
             
             // Add create button
             let createEventButton = createButton(title: "Create", x: 10, y: height-75, w: 70, h: 30)
-            createEventButton.action = #selector(openNewEvent)
+            createEventButton.action = #selector(openEventDisplay)
             view.addSubview(createEventButton)
             
             // Create calendar view
