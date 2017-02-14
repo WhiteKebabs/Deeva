@@ -72,4 +72,14 @@ class Event {
         return self.extraInfo
     }
     
+    func equals(event:Event) -> Bool {
+        if event.getName() != self.name {
+            return false
+        }
+        if event.getStartTime(format: "MMM dd yyyy HH:mm") != self.getStartTime(format: "MMM dd yyyy HH:mm") {
+            return false
+        }
+        return true
+    }
+    
 }

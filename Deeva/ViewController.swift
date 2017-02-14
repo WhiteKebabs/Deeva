@@ -27,7 +27,6 @@ class ViewController: NSViewController {
     var savedEvents = [NSManagedObject]()
     var eventList = EventList()
     var eventButtons: [NSButton] = []
-    var currEvent = NSManagedObject()
     var buttonEventMap =  [String: Event]() // CLEAR DATA AFTER USAGE
     var displayedEvent = String()
     
@@ -42,8 +41,6 @@ class ViewController: NSViewController {
     }
     
     func reloadData(){
-        
-        //eventList.printEventList()
         
         // Remove all event buttons on display
         for button in eventButtons {
@@ -114,11 +111,10 @@ class ViewController: NSViewController {
                     // Add necessary number of buttons for event duration
                     var start = Int(event.getStartTime(format: "mm"))!
                     let end = Int(event.getEndTime(format: "mm"))!
-                    let startHour = Int(event.getStartTime(format: "HH"))!
-                    let endHour = Int(event.getEndTime(format: "HH"))!
+                    let startHour = Int(event.getStartTime(format: "HH"))!// Add
+                    let endHour = Int(event.getEndTime(format: "HH"))! // Add
                 
-                    var i = startHour
-                    //var i = (start+awakeTime)%24
+                    var i = startHour // Add
                 
                     while i <= endHour {
                     
@@ -158,16 +154,34 @@ class ViewController: NSViewController {
     func deleteEvent(){
         let appDelegate = NSApplication.shared().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        managedContext.delete(currEvent)
-        savedEvents.remove(at: savedEvents.index(of: currEvent)!)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd YYYY HH:mm"
+        let currEvent = buttonEventMap[displayedEvent]
+        
+        var i = 0
+        for event in savedEvents {
+            if event.value(forKey: "name") as? String == currEvent?.getName() &&
+                formatter.string(from: event.value(forKey: "startDate") as! Date) == currEvent?.getStartTime(format: "MMM dd yyyy HH:mm") {
+                
+                managedContext.delete(event)
+                savedEvents.remove(at: i)
+                
+                do {
+                    try managedContext.save()
+                } catch let error as NSError  {
+                    print("Could not save \(error), \(error.userInfo)")
+                }
 
-        do {
-            try managedContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+                _ = eventList.deleteEvent(event: currEvent!)
+                
+                closeNewEvent()
+                reloadData()
+                
+                return
+                
+            }
+            i += 1
         }
-        closeNewEvent()
-        reloadData()
     }
     
     func pressedRepeatDay(button:NSButton){
@@ -276,14 +290,14 @@ class ViewController: NSViewController {
     }
     
     func openNewEvent(){
-        openEventDisplay(function: "new", event:Event(name:"", startDate:NSDate() as Date, endDate:NSDate() as Date, flexible:true, repeats:"", location:"", extraInfo:""))
+        openEventDisplay(function: "new", event:buttonEventMap[""], title:"")
     }
     
     func displayExistingEvent(button:NSButton){
-        openEventDisplay(function: "existing", event:buttonEventMap[button.title]!)
+        openEventDisplay(function: "existing", event:buttonEventMap[button.title]!, title:button.title)
     }
     
-    func openEventDisplay(function:String, event:Event){
+    func openEventDisplay(function:String, event:Event?, title:String){
         
         // Create the window for the fields
         newEventWindow = createView(x: width/2 - 200, y: height/2 - 200, w: 400, h: 400, color:NSColor(netHex:0xecf0f1).cgColor)
@@ -301,18 +315,18 @@ class ViewController: NSViewController {
             
             // Start Date
             let field = createDatePicker(x: 400/7 + 1, y: 400*CGFloat(7.0/9) - CGFloat(33.5*Double(0)), w: 400*5/7 - 4, h: 32)
-            field.dateValue = formatter.date(from: event.getStartTime(format: "MMM/dd/yyyy HH:mm:ss"))!
+            field.dateValue = formatter.date(from: (event?.getStartTime(format: "MMM/dd/yyyy HH:mm:ss"))!)!
             newEventWindow.addSubview(field)
             
             // End Date
             let field2 = createDatePicker(x: 400/7 + 1, y: 400*CGFloat(7.0/9) - CGFloat(33.5*Double(1)), w: 400*5/7 - 4, h: 32)
-            field2.dateValue = formatter.date(from: event.getEndTime(format: "MMM/dd/yyyy HH:mm:ss"))!
+            field2.dateValue = formatter.date(from: (event?.getEndTime(format: "MMM/dd/yyyy HH:mm:ss"))!)!
             newEventWindow.addSubview(field2)
             
             // Name
             let field3 = createField(placeholder: "Name", x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*2),
                                     w: 400*5/7 - 2, h: 35)
-            field3.stringValue = event.getName()
+            field3.stringValue = (event?.getName())!
             newEventWindow.addSubview(field3)
             
             //Flexibility
@@ -324,15 +338,20 @@ class ViewController: NSViewController {
             // Location
             let field5 = createField(placeholder: "Location", x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*4),
                                      w: 400*5/7 - 2, h: 35)
-            field5.stringValue = event.getLocation()
+            field5.stringValue = (event?.getLocation())!
             newEventWindow.addSubview(field5)
             
             // Extra Information
             let field6 = createField(placeholder: "Extra Information", x: 400/7, y: 400*CGFloat(13.5/18.0) - CGFloat(34*5),
                                      w: 400*5/7 - 2, h: 35)
-            field6.stringValue = event.getExtraInfo()
+            field6.stringValue = (event?.getExtraInfo())!
             newEventWindow.addSubview(field6)
             
+            let deleteButton = createButton(title: "Delete", x: 400*4/7, y: 40, w: 400*2/7, h: 40)
+            deleteButton.action = #selector(deleteEvent)
+            newEventWindow.addSubview(deleteButton)
+            
+            displayedEvent = title
             
         }
         

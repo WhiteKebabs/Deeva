@@ -91,39 +91,42 @@ class EventList {
         return true
     }
     
-    func deleteEvent(startDate:Date) -> Bool {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM/dd/yyyy"
-        let date = formatter.string(from: startDate)
-        formatter.dateFormat = "HH"
-        let hour = formatter.string(from: startDate)
-        formatter.dateFormat = "MMM/dd/yyyy HH:mm"
-        let fullTime = formatter.string(from: startDate)
+    func deleteEvent(event:Event) -> Bool {
+
+        let date = event.getStartTime(format: "MMM/dd/yyyy")
+        let hour = event.getStartTime(format: "HH")
+        let fullTime = event.getStartTime(format: "MMM/dd/yyyy HH:mm")
         
-        // Find the event
-        var dayList = eventList[date]
-        var hourList = dayList?[hour]
-        
-        for i in 0...hourList!.count - 1 {
-            if hourList?[i].getStartTime(format: "MMM/dd/yyyy HH:mm") == fullTime {
-                hourList?.remove(at: i)
-                return true
+        if event.getRepeats().count > 1{
+            let repeats = event.getRepeats()
+            for i in 1...repeats.count-1 {
+                
+                if var list = repeatedList[repeats[i]]{
+                    for j in 0...list.count-1 {
+                        if list[j].equals(event: event) {
+                            list.remove(at: j)
+                            repeatedList[repeats[i]] = list
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            // Find the event
+            var dayList = eventList[date]
+            var hourList = dayList?[hour]
+            
+            for i in 0...hourList!.count - 1 {
+                if hourList?[i].getStartTime(format: "MMM/dd/yyyy HH:mm") == fullTime {
+                    hourList?.remove(at: i)
+                    dayList?[hour] = hourList
+                    eventList[date] = dayList
+                    return true
+                }
             }
         }
         
         return false
-    }
-    
-    func printEventList() {
-        for (key, value) in eventList {
-            print("kind: \(key)")
-            for (key2, value2) in value {
-                print("kind: \(key2)")
-                for event in value2 {
-                    print(event.getName())
-                }
-            }
-        }
     }
     
 }
