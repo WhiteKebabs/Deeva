@@ -25,7 +25,8 @@ class EventList {
                 flexible: event.value(forKey: "flexible") as! Bool,
                 repeats: event.value(forKey: "repeats") as! String,
                 location: event.value(forKey: "location") as! String,
-                extraInfo: event.value(forKey: "extraInfo") as! String
+                extraInfo: event.value(forKey: "extraInfo") as! String,
+                color: event.value(forKey: "color") as! String
             )
         }
     }
@@ -44,9 +45,9 @@ class EventList {
         return nil
     }
     
-    func addEvent(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:String, location:String, extraInfo:String) -> Bool {
+    func addEvent(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:String, location:String, extraInfo:String, color:String) -> Bool {
         let newEvent = Event(name:name, startDate:startDate, endDate:endDate, flexible:flexible,
-                             repeats:repeats, location:location, extraInfo:extraInfo)
+                             repeats:repeats, location:location, extraInfo:extraInfo, color:color)
         
         if repeats != "" {
             let days = repeats.components(separatedBy: " ")

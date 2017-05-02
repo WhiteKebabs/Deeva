@@ -27,13 +27,11 @@ func createButton(title:String, x:CGFloat, y:CGFloat, w:CGFloat, h:CGFloat) -> N
     return myButton
 }
 
-func createStyledButton(title:String, x:CGFloat, y:CGFloat, w:CGFloat, h:CGFloat, bw:CGFloat, bc:CGColor, bg:CGColor) -> NSButton {
+func createStyledButton(title:String, x:CGFloat, y:CGFloat, w:CGFloat, h:CGFloat, bg:CGColor) -> NSButton {
     let myButton = createButton(title:title, x:x, y:y, w:w, h:h)
     myButton.wantsLayer = true
     let layer = CALayer()
     layer.backgroundColor = CGColor(red: 59.0/255, green: 52.0/255.0, blue: 152.0/255.0, alpha: 1.0)
-    layer.borderWidth = bw
-    layer.borderColor = bc
     myButton.layer = layer
     myButton.title = title
     return myButton
@@ -45,6 +43,7 @@ func createLabel(title:String, x:CGFloat, y:CGFloat, w:CGFloat, h:CGFloat) -> NS
     myDateLabel.stringValue = title
     myDateLabel.isEditable = false
     myDateLabel.alignment = NSTextAlignment.center
+    myDateLabel.wantsLayer = true
     return myDateLabel
 }
 
@@ -85,4 +84,19 @@ func createBlurView(x:CGFloat, y:CGFloat, w:CGFloat, h:CGFloat) -> NSView{
     blurFilter?.setValue(2.5, forKey: kCIInputRadiusKey)
     newEventBackground.layer?.backgroundFilters?.append(blurFilter!)
     return newEventBackground
+}
+
+func createRadios(t:[String], a:Selector, x:[CGFloat], y:[CGFloat], w:[CGFloat], h:[CGFloat]) -> [NSButton]{
+    
+    var radios = [NSButton]()
+    
+    for i in 0...t.count-1 {
+        let radio = createButton(title: t[i], x:x[i], y: y[i], w: w[i], h: h[i])
+        radio.setButtonType(.radio)
+        radios.append(radio)
+        radio.action = a
+    }
+    radios[0].state = NSOnState
+    
+    return radios
 }

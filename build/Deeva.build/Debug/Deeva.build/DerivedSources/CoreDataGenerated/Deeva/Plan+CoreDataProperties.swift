@@ -2,7 +2,7 @@
 //  Plan+CoreDataProperties.swift
 //  
 //
-//  Created by Andrew Walker on 2017/02/02.
+//  Created by Andrew Walker on 2017/02/17.
 //
 //  This file was automatically generated and should not be edited.
 //
@@ -17,6 +17,7 @@ extension Plan {
         return NSFetchRequest<Plan>(entityName: "Plan");
     }
 
+    @NSManaged public var color: String?
     @NSManaged public var endDate: NSDate?
     @NSManaged public var extraInfo: String?
     @NSManaged public var flexible: Bool

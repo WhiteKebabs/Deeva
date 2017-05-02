@@ -17,8 +17,9 @@ class Event {
     private var repeats:[String]
     private var location:String
     private var extraInfo:String
+    private var color:String
     
-    init(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:String, location:String, extraInfo:String) {
+    init(name:String, startDate:Date, endDate:Date, flexible:Bool, repeats:String, location:String, extraInfo:String, color:String) {
         self.name = name
         self.startDate = startDate
         self.endDate = endDate
@@ -26,6 +27,7 @@ class Event {
         self.repeats = repeats.components(separatedBy: " ")
         self.location = location
         self.extraInfo = extraInfo
+        self.color = color
     }
     
     func clashesWith(newEvent:Event) -> Bool {
@@ -70,6 +72,10 @@ class Event {
     
     func getExtraInfo() -> String {
         return self.extraInfo
+    }
+    
+    func getColor() -> String {
+        return self.color
     }
     
     func equals(event:Event) -> Bool {
