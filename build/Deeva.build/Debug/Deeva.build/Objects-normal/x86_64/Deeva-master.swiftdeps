@@ -1,0 +1,14 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "55994e03e0d9eef8e29ef0ec48d77414"
+build_time: [541247644, 312019000]
+inputs:
+  "/Users/Andrew/Documents/Git/Deeva/Deeva/Event.swift": [540650285, 0]
+  "/Users/Andrew/Documents/Git/Deeva/Deeva/EventList.swift": [540649641, 0]
+  "/Users/Andrew/Documents/Git/Deeva/Deeva/WindowController.swift": [539320635, 0]
+  "/Users/Andrew/Documents/Git/Deeva/Deeva/ViewController.swift": [541247644, 0]
+  "/Users/Andrew/Documents/Git/Deeva/Deeva/AppDelegate.swift": [539320635, 0]
+  "/Users/Andrew/Documents/Git/Deeva/Deeva/NSOutlet.swift": [540604021, 0]
+  "/Users/Andrew/Documents/Git/Deeva/Deeva/Helper.swift": [540287896, 0]
+  "/Users/Andrew/Documents/Git/Deeva/build/Deeva.build/Debug/Deeva.build/DerivedSources/CoreDataGenerated/Deeva/Plan+CoreDataClass.swift": [540647697, 0]
+  "/Users/Andrew/Documents/Git/Deeva/build/Deeva.build/Debug/Deeva.build/DerivedSources/CoreDataGenerated/Deeva/Plan+CoreDataProperties.swift": [540647697, 0]
+  "/Users/Andrew/Documents/Git/Deeva/build/Deeva.build/Debug/Deeva.build/DerivedSources/CoreDataGenerated/Deeva/Deeva+CoreDataModel.swift": [540647697, 0]

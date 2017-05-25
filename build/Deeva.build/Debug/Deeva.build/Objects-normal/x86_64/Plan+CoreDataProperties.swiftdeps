@@ -1,0 +1,256 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["C5Deeva4Plan", ""]
+- ["C5Deeva4Plan", "fetchRequest"]
+- ["C5Deeva4Plan", "color"]
+- ["C5Deeva4Plan", "endDate"]
+- ["C5Deeva4Plan", "extraInfo"]
+- ["C5Deeva4Plan", "flexible"]
+- ["C5Deeva4Plan", "location"]
+- ["C5Deeva4Plan", "name"]
+- ["C5Deeva4Plan", "repeats"]
+- ["C5Deeva4Plan", "startDate"]
+provides-dynamic-lookup:
+- "flexible"
+- "extraInfo"
+- "endDate"
+- "repeats"
+- "startDate"
+- "color"
+- "location"
+- "name"
+depends-top-level:
+- "Bool"
+- "NSDate"
+- "NSFetchRequest"
+- "String"
+- !private "StringLiteralType"
+- "Plan"
+depends-member:
+- !private ["Ps9AnyObject", "NSFetchRequest"]
+- ["Ps9AnyObject", "color"]
+- ["Ps9AnyObject", "endDate"]
+- ["Ps9AnyObject", "extraInfo"]
+- ["Ps9AnyObject", "fetchRequest"]
+- ["Ps9AnyObject", "flexible"]
+- !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "location"]
+- ["Ps9AnyObject", "name"]
+- ["Ps9AnyObject", "repeats"]
+- ["Ps9AnyObject", "startDate"]
+- !private ["Ps7CVarArg", "NSFetchRequest"]
+- ["Ps7CVarArg", "color"]
+- ["Ps7CVarArg", "endDate"]
+- ["Ps7CVarArg", "extraInfo"]
+- ["Ps7CVarArg", "fetchRequest"]
+- ["Ps7CVarArg", "flexible"]
+- !private ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "location"]
+- ["Ps7CVarArg", "name"]
+- ["Ps7CVarArg", "repeats"]
+- ["Ps7CVarArg", "startDate"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "NSFetchRequest"]
+- ["Ps28CustomDebugStringConvertible", "color"]
+- ["Ps28CustomDebugStringConvertible", "endDate"]
+- ["Ps28CustomDebugStringConvertible", "extraInfo"]
+- ["Ps28CustomDebugStringConvertible", "fetchRequest"]
+- ["Ps28CustomDebugStringConvertible", "flexible"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "location"]
+- ["Ps28CustomDebugStringConvertible", "name"]
+- ["Ps28CustomDebugStringConvertible", "repeats"]
+- ["Ps28CustomDebugStringConvertible", "startDate"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "NSFetchRequest"]
+- ["Ps23CustomStringConvertible", "color"]
+- ["Ps23CustomStringConvertible", "endDate"]
+- ["Ps23CustomStringConvertible", "extraInfo"]
+- ["Ps23CustomStringConvertible", "fetchRequest"]
+- ["Ps23CustomStringConvertible", "flexible"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "location"]
+- ["Ps23CustomStringConvertible", "name"]
+- ["Ps23CustomStringConvertible", "repeats"]
+- ["Ps23CustomStringConvertible", "startDate"]
+- !private ["Ps9Equatable", "NSFetchRequest"]
+- ["Ps9Equatable", "color"]
+- ["Ps9Equatable", "endDate"]
+- ["Ps9Equatable", "extraInfo"]
+- ["Ps9Equatable", "fetchRequest"]
+- ["Ps9Equatable", "flexible"]
+- !private ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "location"]
+- ["Ps9Equatable", "name"]
+- ["Ps9Equatable", "repeats"]
+- ["Ps9Equatable", "startDate"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "NSFetchRequest"]
+- ["Ps8Hashable", "color"]
+- ["Ps8Hashable", "endDate"]
+- ["Ps8Hashable", "extraInfo"]
+- ["Ps8Hashable", "fetchRequest"]
+- ["Ps8Hashable", "flexible"]
+- !private ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "location"]
+- ["Ps8Hashable", "name"]
+- ["Ps8Hashable", "repeats"]
+- ["Ps8Hashable", "startDate"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo9NSCopying", "init"]
+- ["CSo14NSFetchRequest", "deinit"]
+- !private ["CSo14NSFetchRequest", "init"]
+- !private ["PSo20NSFetchRequestResult", "NSFetchRequest"]
+- ["PSo20NSFetchRequestResult", "color"]
+- ["PSo20NSFetchRequestResult", "endDate"]
+- ["PSo20NSFetchRequestResult", "extraInfo"]
+- ["PSo20NSFetchRequestResult", "fetchRequest"]
+- ["PSo20NSFetchRequestResult", "flexible"]
+- ["PSo20NSFetchRequestResult", "location"]
+- ["PSo20NSFetchRequestResult", "name"]
+- ["PSo20NSFetchRequestResult", "repeats"]
+- ["PSo20NSFetchRequestResult", "startDate"]
+- ["CSo15NSManagedObject", "Bool"]
+- ["CSo15NSManagedObject", "NSDate"]
+- ["CSo15NSManagedObject", "NSFetchRequest"]
+- ["CSo15NSManagedObject", "Plan"]
+- ["CSo15NSManagedObject", "String"]
+- ["CSo15NSManagedObject", "color"]
+- ["CSo15NSManagedObject", "endDate"]
+- ["CSo15NSManagedObject", "extraInfo"]
+- ["CSo15NSManagedObject", "fetchRequest"]
+- ["CSo15NSManagedObject", "flexible"]
+- ["CSo15NSManagedObject", "location"]
+- ["CSo15NSManagedObject", "name"]
+- ["CSo15NSManagedObject", "repeats"]
+- ["CSo15NSManagedObject", "startDate"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "NSDate"]
+- ["CSo8NSObject", "NSFetchRequest"]
+- ["CSo8NSObject", "Plan"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "color"]
+- ["CSo8NSObject", "endDate"]
+- ["CSo8NSObject", "extraInfo"]
+- ["CSo8NSObject", "fetchRequest"]
+- ["CSo8NSObject", "flexible"]
+- !private ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "location"]
+- ["CSo8NSObject", "name"]
+- ["CSo8NSObject", "repeats"]
+- ["CSo8NSObject", "startDate"]
+- !private ["PSo16NSObjectProtocol", "NSFetchRequest"]
+- ["PSo16NSObjectProtocol", "color"]
+- ["PSo16NSObjectProtocol", "endDate"]
+- ["PSo16NSObjectProtocol", "extraInfo"]
+- ["PSo16NSObjectProtocol", "fetchRequest"]
+- ["PSo16NSObjectProtocol", "flexible"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "location"]
+- ["PSo16NSObjectProtocol", "name"]
+- ["PSo16NSObjectProtocol", "repeats"]
+- ["PSo16NSObjectProtocol", "startDate"]
+- !private ["PSo19NSPasteboardReading", "init"]
+- !private ["PSo19NSPasteboardWriting", "init"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- ["C5Deeva4Plan", "Bool"]
+- ["C5Deeva4Plan", "NSDate"]
+- ["C5Deeva4Plan", "NSFetchRequest"]
+- ["C5Deeva4Plan", "Plan"]
+- ["C5Deeva4Plan", "String"]
+- ["C5Deeva4Plan", "color"]
+- ["C5Deeva4Plan", "deinit"]
+- ["C5Deeva4Plan", "endDate"]
+- ["C5Deeva4Plan", "extraInfo"]
+- ["C5Deeva4Plan", "fetchRequest"]
+- ["C5Deeva4Plan", "flexible"]
+- ["C5Deeva4Plan", "location"]
+- ["C5Deeva4Plan", "name"]
+- ["C5Deeva4Plan", "repeats"]
+- ["C5Deeva4Plan", "startDate"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "NSFetchRequest"]
+- ["Ps9_Hashable", "color"]
+- ["Ps9_Hashable", "endDate"]
+- ["Ps9_Hashable", "extraInfo"]
+- ["Ps9_Hashable", "fetchRequest"]
+- ["Ps9_Hashable", "flexible"]
+- !private ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "location"]
+- ["Ps9_Hashable", "name"]
+- ["Ps9_Hashable", "repeats"]
+- ["Ps9_Hashable", "startDate"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "CSo14NSFetchRequest"
+- "PSo20NSFetchRequestResult"
+- "CSo15NSManagedObject"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo19NSPasteboardReading"
+- !private "PSo19NSPasteboardWriting"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- "C5Deeva4Plan"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
+interface-hash: "0023b556dc8ca2b3abe297315c8a64d0"

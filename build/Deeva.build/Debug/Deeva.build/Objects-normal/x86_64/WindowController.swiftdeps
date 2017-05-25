@@ -1,0 +1,236 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "WindowController"
+provides-nominal:
+- "C5Deeva16WindowController"
+provides-member:
+- ["C5Deeva16WindowController", ""]
+provides-dynamic-lookup:
+- "windowDidLoad"
+depends-top-level:
+- "AssignmentPrecedence"
+- !private "NSRect"
+- "WindowController"
+- "NSWindowController"
+- !private "BooleanLiteralType"
+depends-member:
+- !private ["Ps9AnyObject", "NSRect"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "screen"]
+- !private ["Ps9AnyObject", "setFrame"]
+- !private ["Ps9AnyObject", "titleVisibility"]
+- !private ["Ps9AnyObject", "visibleFrame"]
+- !private ["Ps9AnyObject", "window"]
+- ["Ps9AnyObject", "windowDidLoad"]
+- ["Ps9AnyObject", ""]
+- ["Sb", "deinit"]
+- ["V12CoreGraphics7CGFloat", "deinit"]
+- ["VSC6CGRect", "deinit"]
+- !private ["VSC6CGRect", "height"]
+- !private ["VSC6CGRect", "init"]
+- !private ["VSC6CGRect", "width"]
+- !private ["Ps7CVarArg", "NSRect"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "screen"]
+- !private ["Ps7CVarArg", "setFrame"]
+- !private ["Ps7CVarArg", "titleVisibility"]
+- !private ["Ps7CVarArg", "visibleFrame"]
+- !private ["Ps7CVarArg", "window"]
+- ["Ps7CVarArg", "windowDidLoad"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "NSRect"]
+- !private ["Ps28CustomDebugStringConvertible", "height"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "screen"]
+- !private ["Ps28CustomDebugStringConvertible", "setFrame"]
+- !private ["Ps28CustomDebugStringConvertible", "titleVisibility"]
+- !private ["Ps28CustomDebugStringConvertible", "visibleFrame"]
+- !private ["Ps28CustomDebugStringConvertible", "width"]
+- !private ["Ps28CustomDebugStringConvertible", "window"]
+- ["Ps28CustomDebugStringConvertible", "windowDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "height"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "width"]
+- !private ["Ps17CustomReflectable", "height"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "width"]
+- !private ["Ps23CustomStringConvertible", "NSRect"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "screen"]
+- !private ["Ps23CustomStringConvertible", "setFrame"]
+- !private ["Ps23CustomStringConvertible", "titleVisibility"]
+- !private ["Ps23CustomStringConvertible", "visibleFrame"]
+- !private ["Ps23CustomStringConvertible", "window"]
+- ["Ps23CustomStringConvertible", "windowDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "NSRect"]
+- !private ["Ps9Equatable", "height"]
+- !private ["Ps9Equatable", "hidden"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "screen"]
+- !private ["Ps9Equatable", "setFrame"]
+- !private ["Ps9Equatable", "titleVisibility"]
+- !private ["Ps9Equatable", "visibleFrame"]
+- !private ["Ps9Equatable", "width"]
+- !private ["Ps9Equatable", "window"]
+- ["Ps9Equatable", "windowDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "NSRect"]
+- !private ["Ps8Hashable", "hidden"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "screen"]
+- !private ["Ps8Hashable", "setFrame"]
+- !private ["Ps8Hashable", "titleVisibility"]
+- !private ["Ps8Hashable", "visibleFrame"]
+- !private ["Ps8Hashable", "window"]
+- ["Ps8Hashable", "windowDidLoad"]
+- ["Ps8Hashable", ""]
+- !private ["PSo15NSAccessibility", "screen"]
+- !private ["PSo15NSAccessibility", "setFrame"]
+- !private ["PSo15NSAccessibility", "titleVisibility"]
+- !private ["PSo30NSAccessibilityElementProtocol", "screen"]
+- !private ["PSo30NSAccessibilityElementProtocol", "setFrame"]
+- !private ["PSo30NSAccessibilityElementProtocol", "titleVisibility"]
+- !private ["PSo29NSAnimatablePropertyContainer", "screen"]
+- !private ["PSo29NSAnimatablePropertyContainer", "setFrame"]
+- !private ["PSo29NSAnimatablePropertyContainer", "titleVisibility"]
+- !private ["PSo25NSAppearanceCustomization", "screen"]
+- !private ["PSo25NSAppearanceCustomization", "setFrame"]
+- !private ["PSo25NSAppearanceCustomization", "titleVisibility"]
+- ["CSo7NSCoder", "deinit"]
+- !private ["PSo8NSCoding", "NSRect"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "screen"]
+- !private ["PSo8NSCoding", "setFrame"]
+- !private ["PSo8NSCoding", "titleVisibility"]
+- !private ["PSo8NSCoding", "window"]
+- ["PSo8NSCoding", "windowDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["CSo8NSObject", "NSRect"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "screen"]
+- !private ["CSo8NSObject", "setFrame"]
+- !private ["CSo8NSObject", "titleVisibility"]
+- !private ["CSo8NSObject", "visibleFrame"]
+- !private ["CSo8NSObject", "window"]
+- ["CSo8NSObject", "windowDidLoad"]
+- !private ["PSo16NSObjectProtocol", "NSRect"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "screen"]
+- !private ["PSo16NSObjectProtocol", "setFrame"]
+- !private ["PSo16NSObjectProtocol", "titleVisibility"]
+- !private ["PSo16NSObjectProtocol", "visibleFrame"]
+- !private ["PSo16NSObjectProtocol", "window"]
+- ["PSo16NSObjectProtocol", "windowDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["CSo11NSResponder", "NSRect"]
+- ["CSo11NSResponder", "init"]
+- !private ["CSo11NSResponder", "screen"]
+- !private ["CSo11NSResponder", "setFrame"]
+- !private ["CSo11NSResponder", "titleVisibility"]
+- !private ["CSo11NSResponder", "window"]
+- ["CSo11NSResponder", "windowDidLoad"]
+- ["CSo8NSScreen", "deinit"]
+- !private ["CSo8NSScreen", "visibleFrame"]
+- !private ["PSo17NSSeguePerforming", "NSRect"]
+- !private ["PSo17NSSeguePerforming", "init"]
+- !private ["PSo17NSSeguePerforming", "window"]
+- ["PSo17NSSeguePerforming", "windowDidLoad"]
+- ["PSo17NSSeguePerforming", ""]
+- !private ["PSo18NSTouchBarProvider", "NSRect"]
+- !private ["PSo18NSTouchBarProvider", "init"]
+- !private ["PSo18NSTouchBarProvider", "screen"]
+- !private ["PSo18NSTouchBarProvider", "setFrame"]
+- !private ["PSo18NSTouchBarProvider", "titleVisibility"]
+- !private ["PSo18NSTouchBarProvider", "window"]
+- ["PSo18NSTouchBarProvider", "windowDidLoad"]
+- ["PSo18NSTouchBarProvider", ""]
+- !private ["PSo33NSUserInterfaceItemIdentification", "screen"]
+- !private ["PSo33NSUserInterfaceItemIdentification", "setFrame"]
+- !private ["PSo33NSUserInterfaceItemIdentification", "titleVisibility"]
+- !private ["PSo26NSUserInterfaceValidations", "screen"]
+- !private ["PSo26NSUserInterfaceValidations", "setFrame"]
+- !private ["PSo26NSUserInterfaceValidations", "titleVisibility"]
+- ["CSo8NSWindow", "deinit"]
+- !private ["CSo8NSWindow", "screen"]
+- !private ["CSo8NSWindow", "setFrame"]
+- !private ["CSo8NSWindow", "titleVisibility"]
+- !private ["CSo18NSWindowController", "NSRect"]
+- ["CSo18NSWindowController", "deinit"]
+- ["CSo18NSWindowController", "init"]
+- !private ["CSo18NSWindowController", "window"]
+- ["CSo18NSWindowController", "windowDidLoad"]
+- ["CSo18NSWindowController", ""]
+- ["OSC23NSWindowTitleVisibility", "deinit"]
+- !private ["OSC23NSWindowTitleVisibility", "hidden"]
+- ["Sq", "deinit"]
+- !private ["Ps16RawRepresentable", "hidden"]
+- !private ["C5Deeva16WindowController", "NSRect"]
+- ["C5Deeva16WindowController", "deinit"]
+- ["C5Deeva16WindowController", "init"]
+- !private ["C5Deeva16WindowController", "window"]
+- ["C5Deeva16WindowController", "windowDidLoad"]
+- !private ["Ps9_Hashable", "NSRect"]
+- !private ["Ps9_Hashable", "hidden"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "screen"]
+- !private ["Ps9_Hashable", "setFrame"]
+- !private ["Ps9_Hashable", "titleVisibility"]
+- !private ["Ps9_Hashable", "visibleFrame"]
+- !private ["Ps9_Hashable", "window"]
+- ["Ps9_Hashable", "windowDidLoad"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "height"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "width"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sb"
+- "V12CoreGraphics7CGFloat"
+- "VSC6CGRect"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- !private "PSo15NSAccessibility"
+- !private "PSo30NSAccessibilityElementProtocol"
+- !private "PSo29NSAnimatablePropertyContainer"
+- !private "PSo25NSAppearanceCustomization"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "CSo11NSResponder"
+- "CSo8NSScreen"
+- "PSo17NSSeguePerforming"
+- "PSo18NSTouchBarProvider"
+- !private "PSo33NSUserInterfaceItemIdentification"
+- !private "PSo26NSUserInterfaceValidations"
+- "CSo8NSWindow"
+- "CSo18NSWindowController"
+- "OSC23NSWindowTitleVisibility"
+- "Sq"
+- !private "Ps16RawRepresentable"
+- "C5Deeva16WindowController"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
+interface-hash: "bebdc16dbbc27d03a4cbfc7dd18258e8"
